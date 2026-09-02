@@ -1,0 +1,24 @@
+:root {
+  --veloop-primary: #6c2bd9;
+  --veloop-secondary: #8b5cf6;
+  --veloop-accent: #f59e0b;
+
+  --veloop-dark: #171321;
+  --veloop-text: #25212e;
+  --veloop-muted: #6b6675;
+
+  --veloop-white: #ffffff;
+  --veloop-light: #f7f5fb;
+
+  --veloop-success: #16a34a;
+  --veloop-danger: #dc2626;
+
+  --veloop-radius-sm: 8px;
+  --veloop-radius-md: 14px;
+  --veloop-radius-lg: 24px;
+
+  --veloop-shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --veloop-shadow-md: 0 10px 30px rgba(0, 0, 0, 0.1);
+
+  --veloop-transition: 0.25s ease;
+}

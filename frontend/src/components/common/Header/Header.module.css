@@ -1,0 +1,84 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.navbar {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--veloop-primary);
+}
+
+.logo span {
+  display: block;
+
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+
+  color: var(--veloop-muted);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav a {
+  color: var(--veloop-text);
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  transition: color var(--veloop-transition);
+}
+
+.nav a:hover {
+  color: var(--veloop-primary);
+}
+
+.loginButton {
+  border: none;
+  border-radius: 999px;
+
+  padding: 10px 22px;
+
+  color: white;
+  background: var(--veloop-primary);
+
+  font-weight: 700;
+
+  transition:
+    transform var(--veloop-transition),
+    box-shadow var(--veloop-transition);
+}
+
+.loginButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--veloop-shadow-md);
+}
+
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+  }
+
+  .navbar {
+    min-height: 64px;
+  }
+}

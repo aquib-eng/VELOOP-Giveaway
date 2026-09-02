@@ -1,0 +1,58 @@
+.section {
+  padding: 90px 0;
+
+  background: var(--veloop-light);
+}
+
+.heading {
+  max-width: 700px;
+
+  margin: 0 auto 45px;
+
+  text-align: center;
+}
+
+.heading > span {
+  color: var(--veloop-primary);
+
+  font-size: 0.8rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.heading h2 {
+  margin: 10px 0;
+
+  color: var(--veloop-dark);
+
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+}
+
+.heading p {
+  color: var(--veloop-muted);
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .section {
+    padding: 65px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

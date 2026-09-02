@@ -1,0 +1,424 @@
+.page {
+  min-height: 100vh;
+  background: var(--veloop-light);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  min-height: 75px;
+  padding: 0 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  color: var(--veloop-primary);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.logoutButton {
+  padding: 10px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: white;
+  background: var(--veloop-danger);
+
+  font-weight: 800;
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.logoutButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--veloop-shadow-md);
+}
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: 45px 20px;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+.welcomeCard {
+  padding: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  border-radius: 22px;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--veloop-primary),
+      var(--veloop-secondary)
+    );
+
+  box-shadow: var(--veloop-shadow-md);
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  opacity: 0.75;
+}
+
+.welcomeCard h1 {
+  margin: 0;
+
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+}
+
+.subtitle {
+  max-width: 600px;
+  margin: 12px 0 0;
+
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 15px;
+
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  font-size: 0.8rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.status span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #4ade80;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 25px;
+
+  margin-top: 25px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: white;
+
+  box-shadow: var(--veloop-shadow-md);
+}
+
+.card h2 {
+  margin: 0 0 25px;
+
+  color: var(--veloop-dark);
+
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+/* =========================
+   USER INFO
+========================= */
+
+.infoRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.infoRow span {
+  color: var(--veloop-muted);
+  font-size: 0.85rem;
+}
+
+.infoRow strong {
+  max-width: 65%;
+
+  overflow: hidden;
+
+  color: var(--veloop-dark);
+
+  font-size: 0.85rem;
+
+  text-align: right;
+
+  text-overflow: ellipsis;
+}
+
+/* =========================
+   AUTH
+========================= */
+
+.authStatus {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.check {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  color: white;
+  background: var(--veloop-primary);
+
+  font-weight: 900;
+}
+
+.authStatus strong {
+  color: var(--veloop-dark);
+}
+
+.authStatus p {
+  margin: 4px 0 0;
+
+  color: var(--veloop-muted);
+
+  font-size: 0.8rem;
+}
+
+/* =========================
+   API BUTTON
+========================= */
+
+.apiButton {
+  width: 100%;
+
+  padding: 13px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: white;
+  background: var(--veloop-primary);
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.apiButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =========================
+   SUCCESS
+========================= */
+
+.success {
+  margin-top: 15px;
+  padding: 12px;
+
+  border-radius: 10px;
+
+  color: #15803d;
+  background: rgba(34, 197, 94, 0.1);
+
+  font-size: 0.8rem;
+}
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+  margin-top: 15px;
+  padding: 12px;
+
+  border-radius: 10px;
+
+  color: var(--veloop-danger);
+  background: rgba(220, 38, 38, 0.08);
+
+  font-size: 0.8rem;
+}
+
+/* =========================
+   GIVEAWAY
+========================= */
+
+.giveawayCard {
+  margin-top: 25px;
+  padding: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 25px;
+
+  border-radius: 20px;
+
+  background: white;
+
+  box-shadow: var(--veloop-shadow-md);
+}
+
+.giveawayCard h2 {
+  margin: 0;
+
+  color: var(--veloop-dark);
+
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.giveawayCard p:not(.eyebrow) {
+  margin: 8px 0 0;
+
+  color: var(--veloop-muted);
+
+  line-height: 1.5;
+}
+
+.primaryButton {
+  padding: 13px 22px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: white;
+  background: var(--veloop-primary);
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+  .header {
+    padding: 0 20px;
+  }
+
+  .container {
+    padding: 30px 15px;
+  }
+
+  .welcomeCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .giveawayCard {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primaryButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    min-height: 65px;
+  }
+
+  .container {
+    padding-top: 20px;
+  }
+
+  .welcomeCard,
+  .card,
+  .giveawayCard {
+    padding: 22px;
+  }
+
+  .infoRow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .infoRow strong {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .logoutButton {
+    padding: 8px 14px;
+  }
+}

@@ -1,0 +1,60 @@
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+
+  padding: 7px 13px;
+
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+}
+
+/* Active */
+
+.active {
+  color: var(--veloop-success);
+
+  background: rgba(22, 163, 74, 0.1);
+}
+
+.active .dot {
+  background: var(--veloop-success);
+}
+
+/* Upcoming */
+
+.upcoming {
+  color: var(--veloop-primary);
+
+  background: rgba(108, 43, 217, 0.1);
+}
+
+.upcoming .dot {
+  background: var(--veloop-primary);
+}
+
+/* Ended */
+
+.ended {
+  color: var(--veloop-danger);
+
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.ended .dot {
+  background: var(--veloop-danger);
+}
