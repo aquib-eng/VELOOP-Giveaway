@@ -5,6 +5,10 @@ import { useAuth } from "../../../context/AuthContext";
 
 import styles from "./Dashboard.module.css";
 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:5000/api";
+
 function Dashboard() {
   const navigate = useNavigate();
 
@@ -41,9 +45,10 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/me",
+        `${API_URL}/auth/me`,
         {
           method: "GET",
+
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
@@ -55,7 +60,8 @@ function Dashboard() {
 
       if (!response.ok) {
         throw new Error(
-          data.message || "Request failed"
+          data.message ||
+            "Request failed"
         );
       }
 
@@ -76,7 +82,7 @@ function Dashboard() {
 
       setApiError(
         error.message ||
-        "Protected API request failed."
+          "Protected API request failed."
       );
 
     } finally {
@@ -87,9 +93,7 @@ function Dashboard() {
   return (
     <main className={styles.page}>
 
-      {/* =========================
-          HEADER
-      ========================= */}
+      {/* HEADER */}
 
       <header className={styles.header}>
 
@@ -106,10 +110,7 @@ function Dashboard() {
 
       </header>
 
-
-      {/* =========================
-          DASHBOARD CONTENT
-      ========================= */}
+      {/* DASHBOARD CONTENT */}
 
       <section className={styles.container}>
 
@@ -142,10 +143,7 @@ function Dashboard() {
 
         </div>
 
-
-        {/* =========================
-            USER INFORMATION
-        ========================= */}
+        {/* USER INFORMATION */}
 
         <div className={styles.grid}>
 
@@ -156,7 +154,6 @@ function Dashboard() {
             </h2>
 
             <div className={styles.infoRow}>
-
               <span>
                 Name
               </span>
@@ -164,11 +161,9 @@ function Dashboard() {
               <strong>
                 {user?.name || "N/A"}
               </strong>
-
             </div>
 
             <div className={styles.infoRow}>
-
               <span>
                 Email
               </span>
@@ -176,11 +171,9 @@ function Dashboard() {
               <strong>
                 {user?.email || "N/A"}
               </strong>
-
             </div>
 
             <div className={styles.infoRow}>
-
               <span>
                 Account ID
               </span>
@@ -188,15 +181,11 @@ function Dashboard() {
               <strong>
                 {user?._id || "N/A"}
               </strong>
-
             </div>
 
           </div>
 
-
-          {/* =========================
-              AUTHENTICATION
-          ========================= */}
+          {/* AUTHENTICATION */}
 
           <div className={styles.card}>
 
@@ -205,11 +194,13 @@ function Dashboard() {
             </h2>
 
             <div className={styles.authStatus}>
+
               <span className={styles.check}>
                 ✓
               </span>
 
               <div>
+
                 <strong>
                   JWT Authentication
                 </strong>
@@ -217,7 +208,9 @@ function Dashboard() {
                 <p>
                   Your account is authenticated.
                 </p>
+
               </div>
+
             </div>
 
             <button
@@ -246,10 +239,7 @@ function Dashboard() {
 
         </div>
 
-
-        {/* =========================
-            GIVEAWAY SECTION
-        ========================= */}
+        {/* GIVEAWAY SECTION */}
 
         <div className={styles.giveawayCard}>
 

@@ -6,6 +6,10 @@ import GiveawayStatus from "../GiveawayStatus/GiveawayStatus";
 
 import styles from "./CurrentGiveaway.module.css";
 
+const API_URL =
+  import.meta.env.VITE_API_URL ||
+  "http://localhost:5000/api";
+
 function CurrentGiveaway() {
   const [giveaway, setGiveaway] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -22,7 +26,13 @@ function CurrentGiveaway() {
         setError("");
 
         const response = await fetch(
-          "http://localhost:5000/api/giveaways/current"
+          `${API_URL}/giveaways/current`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
         );
 
         const data = await response.json();
@@ -38,20 +48,6 @@ function CurrentGiveaway() {
               "Failed to load giveaway."
           );
         }
-
-        // ==================================
-        // BACKEND RESPONSE FORMAT
-        // {
-        //   success: true,
-        //   data: {
-        //      _id,
-        //      title,
-        //      description,
-        //      prize,
-        //      ...
-        //   }
-        // }
-        // ==================================
 
         setGiveaway(data.data || null);
       } catch (error) {
@@ -172,11 +168,9 @@ function CurrentGiveaway() {
   // GIVEAWAY DATA
   // ======================================
 
-  const giveawayId =
-    giveaway._id;
+  const giveawayId = giveaway._id;
 
-  const prize =
-    giveaway.prize || {};
+  const prize = giveaway.prize || {};
 
   const prizeName =
     prize.name || "Prize";
@@ -195,9 +189,7 @@ function CurrentGiveaway() {
     >
       <div className="container-veloop">
 
-        {/* ================================= */}
         {/* HEADING */}
-        {/* ================================= */}
 
         <div className={styles.heading}>
           <span className={styles.eyebrow}>
@@ -215,31 +207,21 @@ function CurrentGiveaway() {
           </p>
         </div>
 
-        {/* ================================= */}
         {/* GIVEAWAY CARD */}
-        {/* ================================= */}
 
         <div className={styles.card}>
 
-          {/* =============================== */}
           {/* LEFT SIDE */}
-          {/* =============================== */}
 
           <div className={styles.info}>
-
-            {/* Giveaway Status */}
 
             <GiveawayStatus
               status={giveaway.status}
             />
 
-            {/* Title */}
-
             <h3>
               {giveaway.title}
             </h3>
-
-            {/* Description */}
 
             <p
               className={
@@ -249,9 +231,7 @@ function CurrentGiveaway() {
               {giveaway.description}
             </p>
 
-            {/* ============================= */}
             {/* DETAILS */}
-            {/* ============================= */}
 
             <div className={styles.details}>
 
@@ -262,9 +242,7 @@ function CurrentGiveaway() {
                   styles.detail
                 }
               >
-                <span>
-                  🎁
-                </span>
+                <span>🎁</span>
 
                 <div>
                   <small>
@@ -284,9 +262,7 @@ function CurrentGiveaway() {
                   styles.detail
                 }
               >
-                <span>
-                  💰
-                </span>
+                <span>💰</span>
 
                 <div>
                   <small>
@@ -309,9 +285,7 @@ function CurrentGiveaway() {
                   styles.detail
                 }
               >
-                <span>
-                  👥
-                </span>
+                <span>👥</span>
 
                 <div>
                   <small>
@@ -328,9 +302,7 @@ function CurrentGiveaway() {
 
             </div>
 
-            {/* ============================= */}
-            {/* VIEW GIVEAWAY BUTTON */}
-            {/* ============================= */}
+            {/* VIEW GIVEAWAY */}
 
             <Link
               to={`/giveaway/${giveawayId}`}
@@ -345,16 +317,13 @@ function CurrentGiveaway() {
 
           </div>
 
-          {/* =============================== */}
           {/* RIGHT SIDE */}
-          {/* =============================== */}
 
           <div
             className={
               styles.countdownBox
             }
           >
-
             <p>
               GIVEAWAY ENDS IN
             </p>
@@ -364,8 +333,6 @@ function CurrentGiveaway() {
                 giveaway.endDate
               }
             />
-
-            {/* Progress */}
 
             <div
               className={
@@ -383,7 +350,6 @@ function CurrentGiveaway() {
               Don't miss your chance to
               participate.
             </small>
-
           </div>
 
         </div>
