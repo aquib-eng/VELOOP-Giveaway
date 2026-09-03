@@ -3,25 +3,35 @@ require("dotenv").config();
 const app = require("./src/app");
 const connectDB = require("./src/config/db");
 
-const PORT = process.env.PORT || 5000;
+let isConnected = false;
 
-const startServer = async () => {
+const connectDatabase = async () => {
+  if (isConnected) {
+    return;
+  }
+
+  await connectDB();
+
+  isConnected = true;
+
+  console.log("MongoDB connected successfully");
+};
+
+// Vercel serverless entry point
+module.exports = async (req, res) => {
   try {
-    await connectDB();
+    await connectDatabase();
 
-    app.listen(PORT, () => {
-      console.log(
-        `VELOOP backend server running on port ${PORT}`
-      );
-    });
+    return app(req, res);
   } catch (error) {
     console.error(
       "Server startup failed:",
       error.message
     );
 
-    process.exit(1);
+    return res.status(500).json({
+      success: false,
+      message: "Database connection failed",
+    });
   }
 };
-
-startServer();
